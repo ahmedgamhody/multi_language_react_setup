@@ -7,7 +7,7 @@ interface ProtectedRoutesProps {
 export default function ProtectedRoutes({
   allowedRoles,
 }: ProtectedRoutesProps) {
-  const token = "";
+  const token = "ss";
   const role = "user";
   const getCurrentLocale = () => {
     const currentUrl = window.location.pathname;

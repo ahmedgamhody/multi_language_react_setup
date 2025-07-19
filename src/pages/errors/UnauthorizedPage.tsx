@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ShieldX, ArrowLeft } from "lucide-react";
-import { useTypedTranslation } from "../../hooks/useTypedTranslation";
 
 export default function UnauthorizedPage() {
-  const { i18n } = useTypedTranslation();
+  const { locale } = useParams();
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center px-4">
       <div className="bg-white rounded-lg shadow-xl p-8 max-w-md w-full text-center">
@@ -23,7 +22,7 @@ export default function UnauthorizedPage() {
           </p>
 
           <Link
-            to={`/${i18n.language}/`}
+            to={`/${locale}/`}
             className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg hover:bg-secondary transition-colors duration-200"
           >
             <ArrowLeft className="w-4 h-4" />
