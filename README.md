@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# 🌐 React Multi-Language Setup  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Setup جاهز لمشاريع React يدعم تعدد اللغات (EN/AR) باستخدام i18next + TypeScript + React Router.  
 
-Currently, two official plugins are available:
+----------------------------------------------
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ المميزات  
 
-## Expanding the ESLint configuration
+- دعم تعدد اللغات (عربي / إنجليزي) باستخدام i18next  
+- Type-Safe للترجمة مع Auto-complete للمفاتيح  
+- تغيير اللغة ديناميكي من خلال URL مثل `/en/home` أو `/ar/home`  
+- HOC `withLocaleValidation` للتحقق من صحة اللغة وإعادة التوجيه  
+- `useTypedTranslation` Hook لاستخدام الترجمة بأمان  
+- ProtectedRoutes لمحاكاة Authorization  
+- 3 Layouts لمحاكاة هيكل المشاريع الكبيرة  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-------------------------------------------------------------------------
+## 📂 هيكل المشروع  
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+src/
+├─ locales/ # ملفات الترجمة en.json / ar.json
+├─ hooks/
+│ └─ useTypedTranslation.ts # Hook للترجمة مع Type Safety
+├─ hoc/
+│ └─ withLocaleValidation.tsx # HOC للتحقق من اللغة
+├─ routes/
+│ ├─ ProtectedRoutes.tsx # حماية الصفحات
+│ └─ AppRoutes.tsx
+├─ layouts/
+│ ├─ MainLayout.tsx
+│ ├─ AuthLayout.tsx
+│ └─ DashboardLayout.tsx
+├─ components/
+│ └─ Header.tsx # الهيدر مع زرار تغيير اللغة
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+----------------------------------
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## ✅ الخطوة 6: مثال بسيط للاستخدام  
+
+```md
+## 📌 مثال سريع  
+
+```tsx
+import { useTypedTranslation } from "../hooks/useTypedTranslation";
+
+export default function HomePage() {
+  const { t } = useTypedTranslation();
+  return <h1>{t("homePage.title")}</h1>;
+}
+
+
+------------------------------
+
+---
+
+## ✅ الخطوة 7: (اختياري) نضيف Tech Stack  
+
+```md
+## 🛠️ التقنيات المستخدمة  
+
+- React + TypeScript  
+- React Router v6  
+- i18next + react-i18next  
+- TailwindCSS  
+- Vite  
