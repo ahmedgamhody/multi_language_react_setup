@@ -64,7 +64,7 @@ export default function HomePage() {
 
 ---
 
-## ✅ الخطوة 7: (اختياري) نضيف Tech Stack  
+
 
 ```md
 ## 🛠️ التقنيات المستخدمة  
