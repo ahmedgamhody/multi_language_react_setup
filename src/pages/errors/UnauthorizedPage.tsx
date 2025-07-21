@@ -23,6 +23,7 @@ export default function UnauthorizedPage() {
 
           <Link
             to={`/${locale}/`}
+            replace
             className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg hover:bg-secondary transition-colors duration-200"
           >
             <ArrowLeft className="w-4 h-4" />

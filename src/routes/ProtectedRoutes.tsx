@@ -1,4 +1,4 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Outlet, Navigate, useParams } from "react-router-dom";
 import UnauthorizedPage from "../pages/errors/UnauthorizedPage";
 interface ProtectedRoutesProps {
   allowedRoles: string[];
@@ -9,12 +9,11 @@ export default function ProtectedRoutes({
 }: ProtectedRoutesProps) {
   const token = "ss";
   const role = "user";
-  const getCurrentLocale = () => {
-    const currentUrl = window.location.pathname;
-    return currentUrl.split("/")[1];
-  };
+
+  const { locale } = useParams();
+
   if (!token || !role) {
-    return <Navigate to={`/${getCurrentLocale()}/login`} replace />;
+    return <Navigate to={`/${locale}/login`} replace />;
   }
   if (!allowedRoles.includes(role)) {
     return <UnauthorizedPage />;
